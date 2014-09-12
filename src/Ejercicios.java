@@ -28,6 +28,7 @@ public class Ejercicios {
 	//Se deben manejar las excepciones en caso de dividir entre 0
 	static int dividir(int a, int b)
 	{
+		//inicialize la variable luego hice el calculo matematico y devuele las exceptions.
 		int division=0;
 		Scanner s = new Scanner (System.in);
 		try 
@@ -54,9 +55,14 @@ public class Ejercicios {
 	//Se deben manejar las excepciones en caso la posicion se salga de los limites
 	static int getNumero(int arreglo[], int pos)
 	{
+	try{//devuelve un valor almacenado, y si se escede de los limites nos marca exception.
+		return arreglo[pos];
+	}catch(ArrayIndexOutOfBoundsException e){
+		System.out.print("se salio de los limites de la posicion");
+	}
+		return 0;	
 		
-		
-		return -1;
+	
 	}
 	
 	//Devuelve la variable 'x' de 'mi_clase'
@@ -64,20 +70,14 @@ public class Ejercicios {
 	@SuppressWarnings("null")
 	static int getX(MiClase mi_clase)
 	{
-		try 
-		{
+		//este proceso lo que hace es mandar a llamar la clase y si no es asi muestraa la exception si es valor nulo
+		try{
+			return mi_clase.x;
+		}catch(Exception e){
+			System.out.print("No es valido, vuelva intentar");
+		}
+		return 0;
 	
-			 mi_clase = null;
-			 
-		}catch(InputMismatchException mi_exception)
-		{
-			System.out.println("Error: No se puede dejar vacio");
-		
-		}finally
-		{
-		System.out.println("FInal del programa.");
-	}
-		return mi_clase.x;
 		
 	}
 
@@ -86,8 +86,7 @@ public class Ejercicios {
 	//Devuelve el promedio de todos los elementos de 'mi_lista'
 	static int getPromedio(ArrayList<Integer> mi_lista)
 	{
-	
-	
+            //INICIALIZO LAS VARIABLES, LUEGO SE HACE EL CALCULO DEL PROMEDIO.
 		    int n1=0;
 		    int n2=0;
 		    int n3=0;
@@ -102,21 +101,36 @@ public class Ejercicios {
 				
 			promedio= (n1+n2+n3+n4/4);
 			
-
+//devuelvo el valor de esa vaariable
 			
 			
 		return promedio;
 	}
-	
+	//con ayuda de esta pagina:http://jarroba.com/arraylist-en-java-ejemplos
 	//Devuelve el numero mayor almacenado en 'mi_lista'
 	static int getMayor(ArrayList<Integer> mi_lista)
 	{
-		return -1;
-	}
+		//lo que se hace es un ciclo para poder obtener los valores y asi definir el mayor.
+	int obtenermayor=mi_lista.get(0);
+		
+		for(int i=0;i<mi_lista.size();i++){
+		if(mi_lista.get(i)>mayor){
+			obtenermayor=mi_lista.get(i);
+		}
 	
+		}
+		return obtenermayor;
+	}
+		//con ayuda de esta pagina:http://jarroba.com/arraylist-en-java-ejemplos/
 	//Devuelve true si 'mi_lista' contiene 'str' de lo contrario devuelve false
 	static boolean existe(ArrayList<String> mi_lista, String str)
 	{
+		//lo que se hace es un ciclo para poder obtener los valores y asi obtener si encuentra texto sino devuele falso
+		for(int i=0;i<mi_lista.size();i++){
+			if(mi_lista.get(i)==str){
+				return true;
+			}
+		}
 		return false;
 	}
 	
