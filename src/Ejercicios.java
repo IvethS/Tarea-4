@@ -114,7 +114,7 @@ public class Ejercicios {
 	int obtenermayor=mi_lista.get(0);
 		
 		for(int i=0;i<mi_lista.size();i++){
-		if(mi_lista.get(i)>mayor){
+		if(mi_lista.get(i)>obtenermayor){
 			obtenermayor=mi_lista.get(i);
 		}
 	
